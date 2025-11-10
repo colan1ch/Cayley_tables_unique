@@ -1,8 +1,11 @@
-
-```markdown
 # Minimal Cayley Table Fill for Unique Semigroup Identification
 
-This repository contains scripts and data to solve the problem of finding the smallest number of entries (**A(n)**) in a Cayley table required to uniquely define a finite semigroup of order **n**.
+This repository contains scripts and data to solve the problem of finding
+ the smallest number of entries (**A(n)**) in a Cayley table required
+ to uniquely define a finite semigroup of order **n**.
+ The result of this investigations are presented in OEIS
+  as a sequences A387854 (https://oeis.org/A387854)
+   and A387855 (https://oeis.org/A387855)
 
 ## Prerequisites
 
@@ -21,8 +24,13 @@ The research is conducted in the following logical sequence:
 
 ### Step 1: Data Generation (GAP)
 
-*   **`Semigroup_export.bat`** - A GAP script to generate the list of all semigroups of order **n**.
-*   **Output:** `semigroup_n_out.txt` - Text files containing the list of semigroups for orders **n = 2 to 6**.
+*   **`Semigroup_export.bat`** - A GAP script to generate the list of all semigroups of order **n** up to isomorphism and anti-isomorphism.
+*   **`Group_export.bat`** - A GAP script to generate the list of all semigroups of order **n** up to isomorphism.
+*   **Output for semigroup:** `semigroup_n_out.txt` - Text files containing the list of Cayley tables of semigroups for orders **n = 2 to 7**.
+*   **Output for semigroup:** `group_n_out.txt` - Text files containing the list of Cayley tables of groups for orders **n = 6 to 20**.
+
+*   **Output correction for further using:** `wholeTableInOneLine.py` - Transfrom GAP output into format: whole multyplication table in onr string
+	 
 
 ### Step 2: Proofs and Analysis (Jupyter Notebooks)
 
@@ -31,25 +39,22 @@ The following notebooks contain the step-by-step proofs and computations:
 1.  **`proof_2_3.ipynb`**
     *   **Proof:** For semigroups of order 2 and 3, **2 filled cells** are sufficient for unique identification.
 
-2.  **`proof_4_2_cells_not_enough.ipynb`**
+2.  **`proof_semigroup_2constrain.ipynb`**
     *   **Proof:** For semigroups of order 4 (and higher), **2 cells are not sufficient**.
 
-3.  **`proof_5_3_cells_is_enough.ipynb`**
-    *   **Proof:** For semigroups of order 4 and 5, **3 filled cells are sufficient**.
+3.  **`proof_semigroup_3constrain.ipynb`**
+    *   **Proof:** For semigroups of order 4 to 7, **3 filled cells are sufficient**.
 
-4.  **`proof_6_get_list_of_tables.ipynb`**
-    *   **Computation:** Generates a list of semigroups of order 6 that satisfy the 3-cell constraint.
-    *   **Output:** `const_semigroup_n_out.txt` - The list of qualifying semigroups.
-
-5.  **`proof_6_4_cells_not_enough.ipynb`**
-    *   **Proof:** For semigroups of order 6, **4 filled cells are not sufficient**, but **5 cells are sufficient**.
+4.  **`proof_group_2constrain.ipynb`**
+    *   **Proof:** For groups of order 6, **2 filled cells** are sufficient for unique identification.
+    *   **Proof:** For groups of order 8 or 12, **2 filled cells** are unsufficient for unique identification.
 
 ## Usage
 
 To reproduce the results, follow these steps:
 
-1.  **Generate Semigroup Lists:**
-    Execute the `Semigroup_export.bat` script in your GAP environment to generate the necessary `semigroup_n_out.txt` files for the desired orders `n`.
+1.  **Generate Semigroup/Group Lists:**
+    Execute the `Semigroup_export.bat` or `Group_export.bat`script in your GAP environment to generate the necessary `semigroup_n_out.txt` files for the desired orders `n`.
 
 2.  **Run Analysis:**
     Open and run the Jupyter Notebooks in the order presented above to follow the proof logic and regenerate all computational results.
