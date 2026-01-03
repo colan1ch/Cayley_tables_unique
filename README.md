@@ -29,12 +29,14 @@ The research is conducted in the following logical sequence:
 *   **Output for semigroup:** `semigroup_n_out.txt` - Text files containing the list of Cayley tables of semigroups for orders **n = 2 to 7**.
 *   **Output for semigroup:** `group_n_out.txt` - Text files containing the list of Cayley tables of groups for orders **n = 6 to 20**.
 
-*   **Output correction for further using:** `wholeTableInOneLine.py` - Transfrom GAP output into format: whole multyplication table in onr string
+*   **Output correction for further using:** `wholeTableInOneLine.py` - Transfrom GAP output into format: whole multiplication table in one string. The result of this step is in the files named `semigroup_n_output.txt` and `group_n_output.txt`
 	 
 
 ### Step 2: Proofs and Analysis (Jupyter Notebooks)
 
 The following notebooks contain the step-by-step proofs and computations:
+
+##Semigroup section
 
 1.  **`proof_2_3.ipynb`**
     *   **Proof:** For semigroups of order 2 and 3, **2 filled cells** are sufficient for unique identification.
@@ -45,9 +47,19 @@ The following notebooks contain the step-by-step proofs and computations:
 3.  **`proof_semigroup_3constrain.ipynb`**
     *   **Proof:** For semigroups of order 4 to 7, **3 filled cells are sufficient**.
 
-4.  **`proof_group_2constrain.ipynb`**
-    *   **Proof:** For groups of order 6, **2 filled cells** are sufficient for unique identification.
+##Group section
+4.  **`proof_group_n_2constrain.ipynb`**
+    *   **Proof:** For groups of order 6, 9 **2 filled cells** are sufficient for unique identification.
     *   **Proof:** For groups of order 8 or 12, **2 filled cells** are unsufficient for unique identification.
+
+5.  **`proof_group_n_3constrain.ipynb`**
+    *   **Proof:** For groups of order 8 or 12 **3 filled cells** are sufficient for unique identification.
+    *   **Proof:** For groups of order 16,18 or 20, **3 filled cells** are unsufficient for unique identification.
+
+5.  **`proof_group_n_4constrain.ipynb`**
+    *   **Proof:** or groups of order 16,18 or 20, **4 filled cells** are sufficient for unique identification.
+
+
 
 ## Usage
 
